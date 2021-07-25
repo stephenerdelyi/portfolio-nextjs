@@ -33,10 +33,6 @@ export default class Portfolio extends React.Component {
         });
     }
 
-    componentDidMount() {
-        this.open('123');
-    }
-
     render() {
         return <>
             <div className={styles['block-portfolio']}>
