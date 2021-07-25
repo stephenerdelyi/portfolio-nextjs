@@ -4,45 +4,30 @@ import styles from '../styles/skeleton/filterable-content.module.scss'
 
 export default class FilterableContent extends React.Component {
     constructor(props) {
-        super();
+        super(props);
+
+        this.state = {
+            active_category: this.props.default_category
+        }
     }
 
     componentDidMount() {
         //initialize isotope
         this.isotope = new Isotope(document.querySelector('.js-' + this.props.name + '-grid'), {
             itemSelector: '.js-' + this.props.name + '-grid-item',
-        });
-
-        //tell isotope to filter to default category
-        this.isotope.arrange({
-            filter: '.' + this.props.default_category
-        });
-
-        //set the active class on the current category
-        document.querySelectorAll('.js-' + this.props.name + '-categories').forEach((category_set) => {
-            category_set.childNodes.forEach((category) => {
-                if(category.dataset.filter == this.props.default_category) {
-                    category.classList.add(styles['--active']);
-                }
-            })
+            filter: '.' + this.state.active_category
         });
     }
 
     filter(event) {
-        //tell isotope to filter to the newly selected item
-        this.isotope.arrange({
-            filter: '.' + event.target.dataset.filter
-        });
-
-        //set the active class on the current category
-        document.querySelectorAll('.js-' + this.props.name + '-categories').forEach((category_set) => {
-            category_set.childNodes.forEach((category) => {
-                category.classList.remove(styles['--active']);
-
-                if(category.dataset.filter == event.target.dataset.filter) {
-                    category.classList.add(styles['--active']);
-                }
-            })
+        //set the state, then update the filter value based on the state
+        this.setState({
+            active_category: event.target.dataset.filter
+        }, () => {
+            //tell isotope to filter to the newly selected item
+            this.isotope.arrange({
+                filter: '.' + this.state.active_category
+            });
         });
     }
 
@@ -56,10 +41,11 @@ export default class FilterableContent extends React.Component {
                                 {label.length > 0 &&
                                     <p className={styles['filterable-content__category-label']}>{label}</p>
                                 }
-                                <ul className={Classes([[styles, ['filterable-content__category-selector']], ['js-' + this.props.name + '-categories']])}>
+                                <ul className={Classes([[styles, ['filterable-content__category-selector']]])}>
                                     {this.props.categories[label].map((category, key) => {
+                                        var active_class = (this.state.active_category == category.replace(/\s/ig, '-').toLowerCase() ? ['--active'] : []);
                                         return (
-                                            <li key={key} className={styles['filterable-content__category']} onClick={(e) => { this.filter(e) }} data-filter={category.replace(/\s/ig, '-').toLowerCase()}>{category}</li>
+                                            <li key={key} className={Classes([[styles, ['filterable-content__category', ...active_class]]])} onClick={(e) => { this.filter(e) }} data-filter={category.replace(/\s/ig, '-').toLowerCase()}>{category}</li>
                                         )
                                     })}
                                 </ul>
