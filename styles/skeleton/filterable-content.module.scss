@@ -1,0 +1,44 @@
+@import './variables';
+@import './fonts';
+@import './buttons';
+
+.filterable-content {
+    &__category-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__left {
+
+    }
+
+    &__right {
+        flex-basis: 75%;
+    }
+
+    &__category-selector {
+        list-style: none;
+        padding: 0em;
+        margin: 0em;
+        cursor: pointer;
+    }
+
+    &__category-label {
+        @include text();
+        margin-top: -.3em;
+        margin-bottom: 1em;
+        font-weight: 400;
+    }
+
+    &__category {
+        @include text();
+        margin: 0em 0em 1em .94em;
+
+        &.--active {
+            @include button();
+            @include button-primary();
+            margin-left: 0em;
+            pointer-events: none;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import './skeleton/variables';
+@import './skeleton/fonts';
+
+html {
+	overflow: scroll;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+    width: 0px !important;  /* remove scrollbar space */
+    background: transparent !important;  /* optional: just make scrollbar invisible */
+}
+
+body {
+	margin: 0;
+	padding: 0;
+
+	-webkit-transition: scale 0.2s cubic-bezier(0.16, -0.24, 0.25, 1.93);
+	-moz-transition: scale 0.2s cubic-bezier(0.16, -0.24, 0.25, 1.93);
+	-o-transition: scale 0.2s cubic-bezier(0.16, -0.24, 0.25, 1.93);
+	-ms-transition: scale 0.2s cubic-bezier(0.16, -0.24, 0.25, 1.93);
+
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+
+	font-size: 10px;
+	font-family: 'Source Sans Pro', sans-serif;
+    color: $dark-grey;
+
+    //Extra small devices (tablets, 576px and up)
+    @media (max-width: 767px) {
+    	font-size: 6px;
+    }
+
+    //Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+		font-size: 7px;
+    }
+
+    //Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+		font-size: 9px;
+    }
+
+    //Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+        font-size: 10px;
+    }
+
+	&.modal-open {
+		overflow: hidden;
+	}
+}

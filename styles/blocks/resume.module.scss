@@ -1,0 +1,70 @@
+@import '../skeleton/variables';
+@import '../skeleton/fonts';
+@import '../skeleton/buttons';
+
+.block-resume {
+    &__title {
+        @include h2();
+        margin-bottom: 4vw;
+        text-align: center;
+    }
+
+    &__category-item {
+        background-color: $white;
+        border-radius: $standard-border-radius;
+        padding: 4em;
+        margin-bottom: 3em;
+        display: flex;
+        align-items: flex-start;
+        box-shadow: $standard-box-shadow;
+        width: 100%;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        width: stretch;
+
+        &__image {
+            width: 8.4em;
+            background-color: $grey;
+            border-radius: 100%;
+            margin-right: 3.5em;
+        }
+
+        &__content {
+
+        }
+
+        &__title {
+            @include h3();
+
+        }
+
+        &__subtitle {
+            @include text();
+            font-style: italic;
+        }
+
+        &__dates {
+            @include text();
+            font-style: italic;
+            line-height: 0.6em;
+            margin-bottom: 1em;
+        }
+
+        &__skills {
+            list-style: none;
+            padding: 0em;
+            margin: 0em;
+        }
+
+        &__skill {
+            @include button();
+            @include button-tertiary();
+            margin-bottom: 0.6em;
+            box-shadow: none;
+            margin-right: 0.5em;
+            text-transform: none;
+            font-weight: 400;
+            display: inline-block;
+        }
+    }
+}

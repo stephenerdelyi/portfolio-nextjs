@@ -1,0 +1,42 @@
+@import './variables';
+
+.container {
+    padding: 4vw $standard-body-padding;
+
+    &--grey {
+        background-color: $grey;
+    }
+
+    &--grey-gradient {
+    	background: -moz-linear-gradient(top, $white 0%, $grey 100%);
+    	background: -webkit-linear-gradient(top, $white 0%,$grey 100%);
+    	background: linear-gradient(to bottom, $white 0%,$grey 100%);
+    }
+
+    &--dark-grey {
+        background-color: $dark-grey;
+    }
+
+    &--white {
+        background-color: $white;
+    }
+
+    &--blue {
+        background-color: $blue;
+    }
+
+    &--blue-gradient {
+        background: -moz-linear-gradient(-45deg, $light-blue 0%, $blue 58%, $blue 85%);
+		background: -webkit-linear-gradient(-45deg, $light-blue 0%,$blue 58%,$blue 85%);
+		background: linear-gradient(135deg, $light-blue 0%,$blue 58%,$blue 85%);
+    }
+
+    &__content {
+        margin: 0 auto;
+		max-width: 1120px;
+    }
+
+    @media (max-width: 575px) {
+		padding: 10vw $standard-body-padding;
+	}
+}

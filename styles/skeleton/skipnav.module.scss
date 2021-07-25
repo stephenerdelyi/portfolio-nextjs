@@ -1,0 +1,25 @@
+@import './variables';
+@import './fonts';
+
+.skipnav {
+	&__link {
+		pointer-events: none;
+		color: transparent;
+		background-color: transparent;
+		position: absolute;
+		padding: 0em 1em;
+		left: 40px;
+		top: 4px;
+		border-radius: $standard-border-radius;
+		text-decoration: none;
+		z-index: 1;
+
+		@include text();
+
+		&:focus {
+			pointer-events: all;
+			background-color: $dark-grey;
+			color: $white;
+		}
+	}
+}

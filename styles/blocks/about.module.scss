@@ -1,0 +1,21 @@
+@import '../skeleton/variables';
+@import '../skeleton/fonts';
+
+.block-about {
+    text-align: center;
+
+    &__title {
+        @include h2();
+        margin-bottom: 4vw;
+    }
+
+    &__subtitle {
+        @include h3();
+    }
+
+    &__text {
+        @include text();
+        max-width: 25em;
+        margin: 1em auto 0em;
+    }
+}
