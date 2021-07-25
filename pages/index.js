@@ -5,6 +5,7 @@ import Header from '../blocks/header'
 import About from '../blocks/about'
 import Resume from '../blocks/resume'
 import Portfolio from '../blocks/portfolio'
+import Footer from '../blocks/footer'
 
 import Meta from '../modules/meta'
 import Skipnav from '../modules/skipnav'
@@ -29,6 +30,9 @@ export default function PortfolioSPA() {
             </Container>
             <Container id="portfolio" classes={['container--white']} aria_label="Portfolio">
                 <Portfolio></Portfolio>
+            </Container>
+            <Container id="footer" classes={['container--dark-grey']} aria_label="Copyright">
+                <Footer></Footer>
             </Container>
         </main>
         <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>

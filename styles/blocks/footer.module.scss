@@ -1,0 +1,12 @@
+@import '../skeleton/variables';
+@import '../skeleton/fonts';
+
+.block-footer {
+    text-align: center;
+
+    &__text {
+        @include text();
+        color: $white;
+        font-weight: 400;
+    }
+}
