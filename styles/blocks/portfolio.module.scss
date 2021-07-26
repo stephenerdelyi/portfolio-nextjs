@@ -21,6 +21,7 @@
         overflow: hidden;
         height: 35em;
         cursor: pointer;
+        z-index: 0;
 
         &__image {
             width: 8.4em;
@@ -41,6 +42,8 @@
             background-color: rgba(0, 0, 0, 0.8);
             height: 100%;
             width: 100%;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         &__title {

@@ -50,6 +50,11 @@
 			background-color: $dark-grey;
 			color: $grey;
 			overflow: scroll;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
 		}
 
 		&__query-list {
