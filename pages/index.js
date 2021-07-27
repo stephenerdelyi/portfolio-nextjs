@@ -1,16 +1,15 @@
 import Head from 'next/head'
-import Image from 'next/image'
+
+import Meta from '../modules/meta'
+import Favicon from '../modules/favicon'
+import Skipnav from '../modules/skipnav'
+import Container from '../modules/container'
 
 import Header from '../blocks/header'
 import About from '../blocks/about'
 import Resume from '../blocks/resume'
 import Portfolio from '../blocks/portfolio'
 import Footer from '../blocks/footer'
-
-import Meta from '../modules/meta'
-import Skipnav from '../modules/skipnav'
-import Container from '../modules/container'
-import Favicon from '../modules/favicon'
 
 export default function PortfolioSPA() {
     return <>
