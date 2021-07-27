@@ -1,0 +1,149 @@
+@import '../skeleton/variables';
+@import '../skeleton/fonts';
+@import '../skeleton/buttons';
+
+.block-contact {
+    &__title {
+        @include h2();
+        margin-bottom: 4vw;
+        color: $white;
+        text-align: center;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__left {
+        flex-basis: 32%;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    &__right {
+        margin-left: 3em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__contact-form {
+        &__header {
+            background-color: $grey;
+            text-align: center;
+            padding: 2em;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+
+            &__title {
+                @include h3();
+                color: $dark-grey;
+            }
+        }
+
+        &__form {
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            padding: 2.5em;
+            background-color: $white;
+        }
+    }
+
+    &__form-input {
+        border: none;
+        border-bottom: 2px solid $grey;
+        width: 100%;
+        outline: 0;
+        margin-bottom: 0.8em;
+        font-family: inherit;
+        line-height: 1.5em;
+        font-size: 2.2em;
+        font-weight: 300;
+        transition: border 0.3s ease;
+
+        &:focus {
+            border-color: $blue;
+        }
+    }
+
+    &__form-textarea {
+        border: none;
+        border-bottom: 2px solid $grey;
+        width: 100%;
+        outline: 0;
+        margin-bottom: 0.8em;
+        font-family: inherit;
+        line-height: inherit;
+        font-size: 2.2em;
+        font-weight: 300;
+        resize: none;
+        transition: all 0.3s ease;
+        max-height: 1.3em;
+
+        &:focus {
+            border-color: $blue;
+            max-height: 5em;
+        }
+    }
+
+    &__form-button {
+        @include button();
+        @include button-primary();
+        font-family: inherit;
+        font-size: 2em;
+        margin-top: 0.75em;
+        cursor: pointer;
+    }
+
+    &__text {
+        @include text();
+        color: $white;
+    }
+
+    &__contact-item {
+        @include text();
+        color: $white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &.--email {
+            margin-top: 1.3em;
+
+            &:before {
+                content: '';
+				background-size: cover;
+				vertical-align: -6%;
+				padding: 0em 1.28em 0em 0em;
+				margin-right: 0.5em;
+                background-image: url("/images/contact/mail.png");
+            }
+        }
+
+        &.--phone {
+            margin-top: 0.5em;
+            margin-bottom: 1.5em;
+
+            &:before {
+                content: '';
+				background-size: cover;
+				vertical-align: -6%;
+				padding: 0em 1.25em 0em 0em;
+				margin-right: 0.5em;
+                background-image: url("/images/contact/phone.png");
+            }
+        }
+    }
+
+    &__button {
+        @include button();
+        @include button-dark();
+        width: fit-content;
+    }
+}

@@ -35,3 +35,8 @@
     background: $grey;
     color: $dark-grey;
 }
+
+@mixin button-dark() {
+    background: $dark-grey;
+    color: $white;
+}

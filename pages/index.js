@@ -9,6 +9,7 @@ import Header from '../blocks/header'
 import About from '../blocks/about'
 import Resume from '../blocks/resume'
 import Portfolio from '../blocks/portfolio'
+import Contact from '../blocks/contact'
 import Footer from '../blocks/footer'
 
 export default function PortfolioSPA() {
@@ -29,6 +30,9 @@ export default function PortfolioSPA() {
             </Container>
             <Container id="portfolio" classes={['container--white']} aria_label="Portfolio">
                 <Portfolio></Portfolio>
+            </Container>
+            <Container id="contact" classes={['container--blue-gradient']} aria_label="Contact">
+                <Contact></Contact>
             </Container>
             <Container id="footer" classes={['container--dark-grey']} aria_label="Copyright">
                 <Footer></Footer>
