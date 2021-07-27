@@ -1,4 +1,5 @@
 @import './variables';
+@import './buttons';
 @import './fonts';
 
 .case-study {
@@ -22,9 +23,9 @@
     }
 
     &__modal-container {
-        background-color: $white;
-        height: calc(100vh - 4em);
-        padding: 2em;
+        background-color: $grey;
+        height: 100vh;
+        display: flex;
 
         &__animate-entry {
             animation-duration: 0.75s;
@@ -37,15 +38,94 @@
             animation-fill-mode: both;
             animation-name: zoomOut;
         }
+
+        &__left {
+            flex-basis: 30%;
+            border-right: 1px solid $light-grey;
+            text-align: center;
+            overflow-x: auto;
+            padding: 3em;
+            flex-shrink: 0;
+        }
+
+        &__right {
+            padding: 3em;
+            flex-grow: 1;
+        }
     }
 
-    &__close {
+    &__categories {
         @include text();
-        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: $middle-grey;
     }
 
-    &__text {
-        @include h1();
+    &__category-separator {
+        margin: 0em 0.33em;
+    }
+
+    &__title {
+        @include h2();
+        margin: 2em 0em 0.5em;
+    }
+
+    &__skills {
+        list-style: none;
+        padding: 0em;
+        margin: 0em 0em 8em;
+    }
+
+    &__skill {
+        @include button();
+        @include button-secondary();
+        margin-bottom: 0.6em;
+        box-shadow: none;
+        margin-right: 0.5em;
+        text-transform: none;
+        font-weight: 400;
+        display: inline-block;
+        pointer-events: none;
+    }
+
+    &__status {
+        @include text();
+        font-weight: 400;
+    }
+
+    &__description {
+        @include text();
+        text-align: justify;
+        margin-top: 4em;
+        line-height: 1.5;
+    }
+
+    &__story-item {
+        padding: 3em;
+        background-color: $white;
+        box-shadow: $standard-box-shadow;
+        border-radius: $standard-border-radius;
+        display: flex;
+        align-items: center;
+        margin-bottom: 3em;
+
+        &.--right {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &__text-container {
+
+    }
+
+    &__text-title {
+        @include text();
+        font-weight: 400;
+        margin-bottom: 1em;
+    }
+
+    &__text-content {
+        @include text();
     }
 }
 
