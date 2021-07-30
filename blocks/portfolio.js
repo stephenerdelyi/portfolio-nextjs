@@ -21,6 +21,10 @@ export default class Portfolio extends React.Component {
         }
     }
 
+    componentDidMount() {
+        //this.open('123321');
+    }
+
     open(id) {
         this.setState({
             modal: (<CaseStudy close={() => {this.close()}} id={id}></CaseStudy>)

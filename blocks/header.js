@@ -1,7 +1,11 @@
 import styles from '../styles/blocks/header.module.scss'
 import Image from 'next/image'
 
-export default function Header() {
+export default function Header(props) {
+    var title = {__html: props.data.fields.header_site_title}
+    var job_title = {__html: props.data.fields.header_job_title}
+    var cta_button = props.data.fields.header_cta_button
+
     return <>
         <div className={styles['block-header']}>
             <div className={styles['block-header__left']}>
@@ -29,9 +33,9 @@ export default function Header() {
             </div>
             <div className={styles['block-header__right']}>
                 <div className={styles['block-header__intro']}>
-                    <h1 className={styles['block-header__intro__title']}>Hello, I'm<br/>Steve Erdelyi</h1>
-                    <p className={styles['block-header__intro__position']}>Web Developer</p>
-                    <a href="#portfolio" className={styles['block-header__intro__button']}>View Portfolio</a>
+                    <h1 className={styles['block-header__intro__title']} dangerouslySetInnerHTML={title}></h1>
+                    <p className={styles['block-header__intro__position']} dangerouslySetInnerHTML={job_title}></p>
+                    <a href={cta_button.url} className={styles['block-header__intro__button']} target={cta_button.target}>{cta_button.title}</a>
                 </div>
             </div>
         </div>
