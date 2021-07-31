@@ -1,3 +1,4 @@
+import smoothScroll from '../functions/smooth-scroll'
 import styles from '../styles/blocks/header.module.scss'
 
 export default function Header(props) {
@@ -32,7 +33,7 @@ export default function Header(props) {
                 <div className={styles['block-header__intro']}>
                     <h1 className={styles['block-header__intro__title']} dangerouslySetInnerHTML={{__html: fields.site_title}}></h1>
                     <p className={styles['block-header__intro__position']}>{fields.job_title}</p>
-                    <a href={fields.cta_button.url} className={styles['block-header__intro__button']} target={fields.cta_button.target}>{fields.cta_button.title}</a>
+                    <a onClick={(e) => { smoothScroll(e) }} href={fields.cta_button.url} className={styles['block-header__intro__button']} target={fields.cta_button.target}>{fields.cta_button.title}</a>
                 </div>
             </div>
         </div>
