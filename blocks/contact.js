@@ -1,14 +1,16 @@
 import Classes from '../functions/classes'
 import styles from '../styles/blocks/contact.module.scss'
 
-export default function Contact() {
+export default function Contact(props) {
+    var fields = props.data.fields
+
     return <>
         <div className={styles['block-contact']}>
-            <div className={styles['block-contact__title']}>Contact</div>
+            <div className={styles['block-contact__title']}>{fields.title}</div>
             <div className={styles['block-contact__container']}>
                 <div className={styles['block-contact__left']}>
                     <div className={styles['block-contact__contact-form__header']}>
-                        <p className={styles['block-contact__contact-form__header__title']}>Get in touch</p>
+                        <p className={styles['block-contact__contact-form__header__title']}>{fields.form_label}</p>
                     </div>
                     <div className={styles['block-contact__contact-form__form']}>
                         <input className={styles['block-contact__form-input']} aria-label="Contact Name" placeholder="Name" type="text"/>
@@ -18,10 +20,18 @@ export default function Contact() {
                     </div>
                 </div>
                 <div className={styles['block-contact__right']}>
-                    <p className={styles['block-contact__text']}>Feel free to drop me a line using the form, or email me for messages with longer content and/or attachments.</p>
-                    <a href="mailto:stephenerdelyi@icloud.com" className={Classes([[styles, ['block-contact__contact-item', '--email']]])}>stephenerdelyi@icloud.com</a>
-                    <a href="tel:7755152318" className={Classes([[styles, ['block-contact__contact-item', '--phone']]])}>+1.775.515.2318</a>
-                    <a href="#" className={styles['block-contact__button']}>Visit my LinkedIn</a>
+                    <p className={styles['block-contact__text']}>{fields.text_content}</p>
+                    {fields.email &&
+                        <a href={'mailto:' + fields.email} className={Classes([[styles, ['block-contact__contact-item', '--email']]])}>{fields.email}</a>
+                    }
+                    {fields.phone_number &&
+                        <a href={'tel:' + fields.phone_number} className={Classes([[styles, ['block-contact__contact-item', '--phone']]])}>{fields.phone_number}</a>
+                    }
+                    {fields.cta_buttons && fields.cta_buttons.map((button, key) => {
+                        return (
+                            <a key={key} href={button.url} className={styles['block-contact__button']} target={button.target}>{button.title}</a>
+                        )
+                    })}
                 </div>
             </div>
         </div>
