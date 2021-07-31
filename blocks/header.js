@@ -4,9 +4,9 @@ import Image from 'next/image'
 export default function Header(props) {
     var fields = props.data.fields
 
-    var title = {__html: fields.header_site_title}
-    var job_title = {__html: fields.header_job_title}
-    var cta_button = fields.header_cta_button
+    var title = {__html: fields.site_title}
+    var job_title = {__html: fields.job_title}
+    var cta_button = fields.cta_button
 
     return <>
         <div className={styles['block-header']}>
