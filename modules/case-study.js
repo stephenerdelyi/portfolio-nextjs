@@ -45,7 +45,7 @@ export default class CaseStudy extends React.Component {
                         <div className={Classes([[styles, ['case-study__story-item', '--left']]])}>
                             <div className={Classes([[fancy, ['img-wrapper', 'large-img-wrapper', 'left', 'lg', 'iphone']]])}>
                                 <img className={fancy['img-src']} src="/images/portfolio/packlife/iphone-1.png"/>
-                                <img className={fancy['frame']} src="/images/portfolio/interface/iphone.png"/>
+                                <img className={fancy['frame']} src="/images/portfolio/iphone.png"/>
                             </div>
                             <div className={styles['case-study__text-container']}>
                                 <p className={styles['case-study__text-title']}>Title</p>
@@ -55,7 +55,7 @@ export default class CaseStudy extends React.Component {
                         <div className={Classes([[styles, ['case-study__story-item', '--right']]])}>
                             <div className={Classes([[fancy, ['img-wrapper', 'large-img-wrapper', 'right', 'lg', 'iphone']]])}>
                                 <img className={fancy['img-src']} src="/images/portfolio/packlife/iphone-1.png"/>
-                                <img className={fancy['frame']} src="/images/portfolio/interface/iphone.png"/>
+                                <img className={fancy['frame']} src="/images/portfolio/iphone.png"/>
                             </div>
                             <div className={styles['case-study__text-container']}>
                                 <p className={styles['case-study__text-title']}>Title</p>
