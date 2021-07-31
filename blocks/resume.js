@@ -22,8 +22,12 @@ export default function Resume(props) {
                             <img className={styles['block-resume__category-item__image']} src={item.image} alt={item.title}/>
                             <div className={styles['block-resume__category-item__content']}>
                                 <h3 className={styles['block-resume__category-item__title']}>{item.title}</h3>
-                                <p className={styles['block-resume__category-item__subtitle']}>{item.subtitle}</p>
-                                <p className={styles['block-resume__category-item__dates']}>{item.date_label}</p>
+                                {item.subtitle &&
+                                    <p className={styles['block-resume__category-item__subtitle']} dangerouslySetInnerHTML={{__html: item.subtitle}}></p>
+                                }
+                                {item.date_label &&
+                                    <p className={styles['block-resume__category-item__dates']}>{item.date_label}</p>
+                                }
                                 {item.tags &&
                                     <ul className={styles['block-resume__category-item__skills']}>
                                         {item.tags.map((tag, key) => {
