@@ -2,9 +2,11 @@ import styles from '../styles/blocks/header.module.scss'
 import Image from 'next/image'
 
 export default function Header(props) {
-    var title = {__html: props.data.fields.header_site_title}
-    var job_title = {__html: props.data.fields.header_job_title}
-    var cta_button = props.data.fields.header_cta_button
+    var fields = props.data.fields
+
+    var title = {__html: fields.header_site_title}
+    var job_title = {__html: fields.header_job_title}
+    var cta_button = fields.header_cta_button
 
     return <>
         <div className={styles['block-header']}>
