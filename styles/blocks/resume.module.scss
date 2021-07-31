@@ -47,20 +47,19 @@
         &__dates {
             @include text();
             font-style: italic;
-            line-height: 0.6em;
-            margin-bottom: 1em;
         }
 
         &__skills {
             list-style: none;
             padding: 0em;
             margin: 0em;
+            margin-top: 0.5em;
         }
 
         &__skill {
             @include button();
             @include button-tertiary();
-            margin-bottom: 0.6em;
+            margin-top: 0.6em;
             box-shadow: none;
             margin-right: 0.5em;
             text-transform: none;
@@ -72,6 +71,7 @@
         &__description {
             @include text();
             line-height: 1.45;
+            margin-top: 0.6em;
         }
     }
 }
