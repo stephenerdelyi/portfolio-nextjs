@@ -4,10 +4,6 @@ import Image from 'next/image'
 export default function Header(props) {
     var fields = props.data.fields
 
-    var title = {__html: fields.site_title}
-    var job_title = {__html: fields.job_title}
-    var cta_button = fields.cta_button
-
     return <>
         <div className={styles['block-header']}>
             <div className={styles['block-header__left']}>
@@ -35,9 +31,9 @@ export default function Header(props) {
             </div>
             <div className={styles['block-header__right']}>
                 <div className={styles['block-header__intro']}>
-                    <h1 className={styles['block-header__intro__title']} dangerouslySetInnerHTML={title}></h1>
-                    <p className={styles['block-header__intro__position']} dangerouslySetInnerHTML={job_title}></p>
-                    <a href={cta_button.url} className={styles['block-header__intro__button']} target={cta_button.target}>{cta_button.title}</a>
+                    <h1 className={styles['block-header__intro__title']} dangerouslySetInnerHTML={{__html: fields.site_title}}></h1>
+                    <p className={styles['block-header__intro__position']}>{fields.job_title}</p>
+                    <a href={fields.cta_button.url} className={styles['block-header__intro__button']} target={fields.cta_button.target}>{fields.cta_button.title}</a>
                 </div>
             </div>
         </div>
