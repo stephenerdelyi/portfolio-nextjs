@@ -68,5 +68,10 @@
             display: inline-block;
             pointer-events: none;
         }
+
+        &__description {
+            @include text();
+            line-height: 1.45;
+        }
     }
 }

@@ -2,54 +2,44 @@ import Classes from '../functions/classes.js'
 import FilterableContent from '../modules/filterable-content.js'
 import styles from '../styles/blocks/resume.module.scss'
 
-export default function Resume() {
+export default function Resume(props) {
+    var fields = props.data.fields
+
     var categories = {
-        '': ['Experience', 'Education', 'Activities', 'Skills']
+        '': fields.types
     }
 
-    var default_category = 'experience';
+    var default_category = fields.default_type;
 
     return <>
         <div className={styles['block-resume']}>
             <h2 className={styles['block-resume__title']}>Résumé</h2>
 
             <FilterableContent categories={categories} default_category={default_category} name="resume">
-                <div className={Classes([[styles, ['block-resume__category-item']], ['js-resume-grid-item', 'experience']])}>
-                    <img className={styles['block-resume__category-item__image']} src="/images/resume/noble.png" alt="Noble Studios"/>
-                    <div className={styles['block-resume__category-item__content']}>
-                        <h3 className={styles['block-resume__category-item__title']}>Employer</h3>
-                        <p className={styles['block-resume__category-item__subtitle']}>Title</p>
-                        <p className={styles['block-resume__category-item__dates']}>Start - End</p>
-                        <ul className={styles['block-resume__category-item__skills']}>
-                            <li className={styles['block-resume__category-item__skill']}>Skill</li>
-                        </ul>
-                        {/*<p className={styles['block-resume__category-item__description']}>{{experienceItem.description}}</p>*/}
-                    </div>
-                </div>
-                <div className={Classes([[styles, ['block-resume__category-item']], ['js-resume-grid-item', 'education']])}>
-                    <img className={styles['block-resume__category-item__image']} src="/images/resume/aaf.png" alt="AAF Reno"/>
-                    <div className={styles['block-resume__category-item__content']}>
-                        <h3 className={styles['block-resume__category-item__title']}>Employer</h3>
-                        <p className={styles['block-resume__category-item__subtitle']}>Title</p>
-                        <p className={styles['block-resume__category-item__dates']}>Start - End</p>
-                        <ul className={styles['block-resume__category-item__skills']}>
-                            <li className={styles['block-resume__category-item__skill']}>Skill</li>
-                        </ul>
-                        {/*<p className={styles['block-resume__category-item__description']}>{{experienceItem.description}}</p>*/}
-                    </div>
-                </div>
-                <div className={Classes([[styles, ['block-resume__category-item']], ['js-resume-grid-item', 'activities']])}>
-                    <img className={styles['block-resume__category-item__image']} src="/images/resume/ieee.png" alt="IEEE"/>
-                    <div className={styles['block-resume__category-item__content']}>
-                        <h3 className={styles['block-resume__category-item__title']}>Employer</h3>
-                        <p className={styles['block-resume__category-item__subtitle']}>Title</p>
-                        <p className={styles['block-resume__category-item__dates']}>Start - End</p>
-                        <ul className={styles['block-resume__category-item__skills']}>
-                            <li className={styles['block-resume__category-item__skill']}>Skill</li>
-                        </ul>
-                        {/*<p className={styles['block-resume__category-item__description']}>{{experienceItem.description}}</p>*/}
-                    </div>
-                </div>
+                {fields.items.map((item, key) => {
+                    return (
+                        <div key={key} className={Classes([[styles, ['block-resume__category-item']], ['js-resume-grid-item', ...item.types]])}>
+                            <img className={styles['block-resume__category-item__image']} src={item.image} alt={item.title}/>
+                            <div className={styles['block-resume__category-item__content']}>
+                                <h3 className={styles['block-resume__category-item__title']}>{item.title}</h3>
+                                <p className={styles['block-resume__category-item__subtitle']}>{item.subtitle}</p>
+                                <p className={styles['block-resume__category-item__dates']}>{item.date_label}</p>
+                                {item.tags &&
+                                    <ul className={styles['block-resume__category-item__skills']}>
+                                        {item.tags.map((tag, key) => {
+                                            return (
+                                                <li key={key} className={styles['block-resume__category-item__skill']}>{tag}</li>
+                                            )
+                                        })}
+                                    </ul>
+                                }
+                                {item.text_content &&
+                                    <p className={styles['block-resume__category-item__description']}>{item.text_content}</p>
+                                }
+                            </div>
+                        </div>
+                    )
+                })}
             </FilterableContent>
         </div>
     </>
