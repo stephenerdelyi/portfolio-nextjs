@@ -1,12 +1,11 @@
 import styles from '../styles/blocks/footer.module.scss'
 
-export default function Footer() {
-    var today = new Date();
-    var year = today.getFullYear();
+export default function Footer(props) {
+    var fields = props.data.fields;
 
     return <>
         <div className={styles['block-footer']}>
-        	<p className={styles['block-footer__text']}>&copy; {year} Steve Erdelyi Jr. All Rights Reserved.</p>
+        	<p className={styles['block-footer__text']}>{fields.text_content}</p>
         </div>
     </>
 }
