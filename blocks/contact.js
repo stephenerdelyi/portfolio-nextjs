@@ -1,4 +1,5 @@
 import Classes from '../functions/classes'
+import ContactForm from '../modules/contact-form'
 import styles from '../styles/blocks/contact.module.scss'
 
 export default function Contact(props) {
@@ -12,12 +13,7 @@ export default function Contact(props) {
                     <div className={styles['block-contact__contact-form__header']}>
                         <p className={styles['block-contact__contact-form__header__title']}>{fields.form_label}</p>
                     </div>
-                    <div className={styles['block-contact__contact-form__form']}>
-                        <input className={styles['block-contact__form-input']} aria-label="Contact Name" placeholder="Name" type="text"/>
-                        <input className={styles['block-contact__form-input']} aria-label="Contact Email" placeholder="E-mail" type="text"/>
-                        <textarea className={styles['block-contact__form-textarea']} aria-label="Contact Message" placeholder="Message"></textarea>
-                        <button className={styles['block-contact__form-button']}>Send Message</button>
-                    </div>
+                    <ContactForm data={fields}/>
                 </div>
                 <div className={styles['block-contact__right']}>
                     <p className={styles['block-contact__text']}>{fields.text_content}</p>
