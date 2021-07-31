@@ -3,8 +3,17 @@
 
 .block-footer {
     text-align: center;
+    display: flex;
+    justify-content: center;
 
     &__text {
+        @include text();
+        color: $white;
+        font-weight: 400;
+        margin-right: 0.5em;
+    }
+
+    &__link {
         @include text();
         color: $white;
         font-weight: 400;

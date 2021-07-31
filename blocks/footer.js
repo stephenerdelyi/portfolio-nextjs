@@ -6,6 +6,7 @@ export default function Footer(props) {
     return <>
         <div className={styles['block-footer']}>
         	<p className={styles['block-footer__text']}>{fields.text_content}</p>
+            <a className={styles['block-footer__link']} href="https://github.com/stephenerdelyi/portfolio-nextjs">Repository</a>
         </div>
     </>
 }
