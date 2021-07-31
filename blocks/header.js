@@ -1,5 +1,4 @@
 import styles from '../styles/blocks/header.module.scss'
-import Image from 'next/image'
 
 export default function Header(props) {
     var fields = props.data.fields
@@ -9,9 +8,9 @@ export default function Header(props) {
             <div className={styles['block-header__left']}>
                 <div className={styles['block-header__dev-window']}>
 					<div className={styles['block-header__dev-window__menu-bar']}>
-                        <div className={styles['block-header__dev-window__menu-btn']}><Image priority src="/images/header/red.svg" height={15} width={15} alt=""/></div>
-                        <div className={styles['block-header__dev-window__menu-btn']}><Image priority src="/images/header/yellow.svg" height={15} width={15} alt=""/></div>
-                        <div className={styles['block-header__dev-window__menu-btn']}><Image priority src="/images/header/green.svg" height={15} width={15} alt=""/></div>
+                        <div className={styles['block-header__dev-window__menu-btn']}><img className={styles['block-header__dev-window__menu-img']} src="/images/header/red.svg" alt=""/></div>
+                        <div className={styles['block-header__dev-window__menu-btn']}><img className={styles['block-header__dev-window__menu-img']} src="/images/header/yellow.svg" alt=""/></div>
+                        <div className={styles['block-header__dev-window__menu-btn']}><img className={styles['block-header__dev-window__menu-img']} src="/images/header/green.svg" alt=""/></div>
 					</div>
 					<div className={styles['block-header__dev-window__content-area']}>
 						<ul className={styles['block-header__dev-window__query-list']}>

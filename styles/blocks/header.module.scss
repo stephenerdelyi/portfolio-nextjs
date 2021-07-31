@@ -40,7 +40,24 @@
 		&__menu-btn {
 			margin: 0em 0.5em;
 			display: flex;
-			cursor: pointer;
+		}
+
+		&__menu-img {
+		    @media (max-width: 767px) {
+				height: 1.66em;
+		    }
+
+		    @media (min-width: 768px) {
+				height: 1.45em;
+		    }
+
+		    @media (min-width: 992px) {
+				height: 1.55em;
+		    }
+
+		    @media (min-width: 1200px) {
+				height: 1.5em;
+		    }
 		}
 
 		&__content-area {

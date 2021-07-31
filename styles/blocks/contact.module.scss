@@ -13,6 +13,10 @@
     &__container {
         display: flex;
         align-items: center;
+
+        @media(max-width: 565px) {
+            flex-direction: column;
+        }
     }
 
     &__left {
@@ -23,12 +27,21 @@
         &:hover {
             transform: scale(1.05);
         }
+
+        @media(max-width: 565px) {
+            margin: 5em 0em;
+        }
     }
 
     &__right {
         margin-left: 3em;
         display: flex;
         flex-direction: column;
+
+        @media(max-width: 565px) {
+            text-align: center;
+            margin-left: 0em;
+        }
     }
 
     &__contact-form {
@@ -145,5 +158,9 @@
         @include button();
         @include button-dark();
         width: fit-content;
+
+        @media(max-width: 565px) {
+            margin: 0em auto;
+        }
     }
 }

@@ -6,10 +6,21 @@
     &__category-container {
         display: flex;
         justify-content: space-between;
+
+        @media(max-width: 565px) {
+            flex-wrap: wrap;
+        }
     }
 
     &__left {
-
+        @media(max-width: 565px) {
+            align-self: center;
+            text-align: center;
+            margin: 3em;
+            flex-basis: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
     }
 
     &__right {
@@ -17,6 +28,12 @@
         display: flex;
         flex-wrap: wrap;
         margin: -1.5em;
+
+        @media(max-width: 565px) {
+            flex-basis: 100%;
+            margin-left: 0em;
+            margin-right: 0em;
+        }
     }
 
     &__category-selector {
@@ -36,6 +53,10 @@
     &__category {
         @include text();
         margin: 0em 0em 1em .94em;
+
+        @media(max-width: 565px) {
+            margin-left: 0em;
+        }
 
         &.--active {
             @include button();
