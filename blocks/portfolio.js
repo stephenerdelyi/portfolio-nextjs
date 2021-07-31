@@ -50,7 +50,9 @@ export default class Portfolio extends React.Component {
                             <div key={key} onClick={() => {this.open(item.id)}} className={Classes([[styles, ['block-portfolio__category-item']], [fancy, ['round-container']], ['js-portfolio-grid-item', ...item.types, ...item.categories]])}>
                                 <div className={Classes([[fancy, ['img-wrapper', item.image_type, item.image_position]]])}>
                                     <img className={fancy['img-src']} src={item.image} alt={item.title}/>
-                                    <img className={fancy['frame']} src={'/images/portfolio/' + item.image_type + '.png'} alt=""/>
+                                    {item.image_type != 'pdf' &&
+                                        <img className={fancy['frame']} src={'/images/portfolio/' + item.image_type + '.png'} alt=""/>
+                                    }
                                 </div>
                                 <div className={styles['block-portfolio__category-item__content']}>
                                     <p className={styles['block-portfolio__category-item__title']}>{item.title}</p>
