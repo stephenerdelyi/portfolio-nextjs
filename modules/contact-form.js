@@ -8,7 +8,6 @@ export default class ContactForm extends React.Component {
         super(props);
 
         this.fields = this.props.data;
-        console.log(this.fields);
 
         this.formName = React.createRef();
         this.formEmail = React.createRef();
@@ -52,7 +51,7 @@ export default class ContactForm extends React.Component {
             message: this.formMessage.current.formItem.current.value
         }
 
-        const response = await fetch('https://portfolio-headless-wp.lndo.site/wp-json/portfolio/message', {
+        const response = await fetch('https://admin.steveerdelyi.com/wp-json/portfolio/message', {
             method: 'POST',
             body: JSON.stringify(form_data),
             headers: {

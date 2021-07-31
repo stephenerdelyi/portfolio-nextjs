@@ -33,8 +33,8 @@ export default function PortfolioSPA(props) {
 
 //get site data from admin endpoint
 export async function getServerSideProps(context) {
-    //var connection = await fetch('https://admin.steveerdelyi.com/wp-json/portfolio/homepage/')
-    var connection = await fetch('http://portfolio-headless-wp.lndo.site/wp-json/portfolio/homepage/')
+    var connection = await fetch('https://admin.steveerdelyi.com/wp-json/portfolio/homepage/')
+    //var connection = await fetch('http://portfolio-headless-wp.lndo.site/wp-json/portfolio/homepage/')
     var response = await connection.json()
 
     return {
