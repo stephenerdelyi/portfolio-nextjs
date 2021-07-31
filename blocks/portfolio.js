@@ -42,7 +42,7 @@ export default class Portfolio extends React.Component {
     render() {
         return <>
             <div className={styles['block-portfolio']}>
-                <h2 className={styles['block-portfolio__title']}>Portfolio</h2>
+                <h2 className={styles['block-portfolio__title']}>{this.fields.title}</h2>
 
                 <FilterableContent categories={this.categories} default_category={this.default_category} name="portfolio">
                     {this.fields.items.map((item, key) => {

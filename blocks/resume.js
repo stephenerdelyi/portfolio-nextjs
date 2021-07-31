@@ -13,7 +13,7 @@ export default function Resume(props) {
 
     return <>
         <div className={styles['block-resume']}>
-            <h2 className={styles['block-resume__title']}>Résumé</h2>
+            <h2 className={styles['block-resume__title']}>{fields.title}</h2>
 
             <FilterableContent categories={categories} default_category={default_category} name="resume">
                 {fields.items.map((item, key) => {
