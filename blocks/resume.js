@@ -9,7 +9,7 @@ export default function Resume(props) {
         '': fields.types
     }
 
-    var default_category = fields.default_type;
+    var default_category = fields.default_selection;
 
     return <>
         <div className={styles['block-resume']}>
