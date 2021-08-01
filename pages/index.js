@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
 import Meta from '../modules/meta'
@@ -6,6 +5,8 @@ import Favicon from '../modules/favicon'
 import Skipnav from '../modules/skipnav'
 import Container from '../modules/container'
 import Scripts from '../modules/scripts'
+
+import getEndpoint from '../functions/get-endpoint'
 
 export default function PortfolioSPA(props) {
     return <>
@@ -33,8 +34,7 @@ export default function PortfolioSPA(props) {
 
 //get site data from admin endpoint
 export async function getServerSideProps(context) {
-    var connection = await fetch('https://admin.steveerdelyi.com/wp-json/portfolio/homepage/')
-    //var connection = await fetch('http://portfolio-headless-wp.lndo.site/wp-json/portfolio/homepage/')
+    var connection = await fetch(getEndpoint() + '/homepage')
     var response = await connection.json()
 
     return {

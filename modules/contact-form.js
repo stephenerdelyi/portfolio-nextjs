@@ -3,6 +3,8 @@ import ContactField from './contact-field'
 import Classes from '../functions/classes'
 import styles from '../styles/blocks/contact.module.scss'
 
+import getEndpoint from '../functions/get-endpoint'
+
 export default class ContactForm extends React.Component {
     constructor(props) {
         super(props);
@@ -51,7 +53,7 @@ export default class ContactForm extends React.Component {
             message: this.formMessage.current.formItem.current.value
         }
 
-        const response = await fetch('https://admin.steveerdelyi.com/wp-json/portfolio/message', {
+        const response = await fetch(getEndpoint() + '/message', {
             method: 'POST',
             body: JSON.stringify(form_data),
             headers: {
