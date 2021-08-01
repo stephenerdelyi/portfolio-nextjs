@@ -33,7 +33,7 @@ export default class FilterableContent extends React.Component {
 
     render() {
         return <>
-            <div className={styles['filterable-content__category-container']}>
+            <div className={Classes([[styles, ['filterable-content__category-container', '--' + this.props.name]]])}>
                 <div className={styles['filterable-content__left']}>
                     {Object.keys(this.props.categories).map((label, key) => {
                         return (

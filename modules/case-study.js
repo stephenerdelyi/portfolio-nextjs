@@ -30,16 +30,17 @@ export default class CaseStudy extends React.Component {
         return <>
             <div className={Classes([[styles, ['case-study', 'case-study__animate-entry', ...main_class]]])}>
                 <div className={Classes([[styles, ['case-study__modal-container', 'case-study__modal-container__animate-entry', ...container_class]]])}>
+                    <img onClick={() => { this.close(); }} className={styles['case-study__close-btn']} src="/images/portfolio/close.png"/>
                     <div className={styles['case-study__modal-container__left']}>
-                            <p onClick={() => { this.close(); }} className={styles['case-study__categories']}>Applications  <span className={styles['case-study__category-separator']}>•</span> School</p>
-                            <p className={styles['case-study__title']}>PackLife</p>
-                            <ul className={styles['case-study__skills']}>
-                                <li className={styles['case-study__skill']}>Software Development</li>
-                                <li className={styles['case-study__skill']}>Ionic Framework</li>
-                                <li className={styles['case-study__skill']}>Angular</li>
-                            </ul>
-                            <p className={styles['case-study__status']}>Status: No longer maintained<br/>Last Developed: May, 2019</p>
-                            <p className={styles['case-study__description']}>PackLife is a web application that any UNR guest can use to learn more about The University of Nevada, Reno and its services. PackLife provides users with event, transportation, dining, and amenities options available at the university in a fun and easy to use application.</p>
+                        <p className={styles['case-study__categories']}>Applications  <span className={styles['case-study__category-separator']}>•</span> School</p>
+                        <p className={styles['case-study__title']}>PackLife</p>
+                        <ul className={styles['case-study__skills']}>
+                            <li className={styles['case-study__skill']}>Software Development</li>
+                            <li className={styles['case-study__skill']}>Ionic Framework</li>
+                            <li className={styles['case-study__skill']}>Angular</li>
+                        </ul>
+                        <p className={styles['case-study__status']}>Status: No longer maintained<br/>Last Developed: May, 2019</p>
+                        <p className={styles['case-study__description']}>PackLife is a web application that any UNR guest can use to learn more about The University of Nevada, Reno and its services. PackLife provides users with event, transportation, dining, and amenities options available at the university in a fun and easy to use application.</p>
                     </div>
                     <div className={styles['case-study__modal-container__right']}>
                         <div className={Classes([[styles, ['case-study__story-item', '--left']]])}>

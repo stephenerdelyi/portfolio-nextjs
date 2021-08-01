@@ -34,6 +34,14 @@
             margin-left: 0em;
             margin-right: 0em;
         }
+
+        .--portfolio & {
+            @media(max-width: 415px) {
+                max-width: 40em;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
     }
 
     &__category-selector {

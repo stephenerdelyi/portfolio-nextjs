@@ -23,6 +23,10 @@
         cursor: pointer;
         z-index: 0;
 
+        @media(max-width: 415px) {
+            width: calc(100% - 3em);
+        }
+
         &__image {
             width: 8.4em;
             background-color: $white;

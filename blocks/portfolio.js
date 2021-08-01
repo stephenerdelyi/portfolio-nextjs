@@ -31,12 +31,23 @@ export default class Portfolio extends React.Component {
         this.setState({
             modal: (<CaseStudy close={() => {this.close()}} id={id}></CaseStudy>)
         });
+
+        //don't allow scrolling behind the modal when open + don't jump scroll position when opening
+        var savedScrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${savedScrollY}px`;
     }
 
     close() {
         this.setState({
             modal: null
         });
+
+        //remove styles to disallow scrolling behind the modal when open + don't jump scroll position when closing
+        var savedScrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(savedScrollY || '0') * -1);
     }
 
     render() {
