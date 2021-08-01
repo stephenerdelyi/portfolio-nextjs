@@ -17,6 +17,13 @@ export default class FilterableContent extends React.Component {
             itemSelector: '.js-' + this.props.name + '-grid-item',
             filter: '.' + this.state.active_category
         });
+
+        //annoying but this fixes the isotope layout bug seen on render
+        setTimeout(() => {
+            this.isotope.arrange({
+                filter: '.' + this.state.active_category
+            });
+        }, 500);
     }
 
     filter(event) {
