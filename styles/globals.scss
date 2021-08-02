@@ -30,6 +30,8 @@ body {
 	font-family: 'Source Sans Pro', sans-serif;
     color: $dark-grey;
 
+	width: 100%;
+
     //Extra small devices (tablets, 576px and up)
     @media (max-width: 767px) {
     	font-size: 6px;
