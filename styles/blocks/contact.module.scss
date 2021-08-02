@@ -53,8 +53,7 @@
             border-top-right-radius: 12px;
 
             &__title {
-                @include h3();
-                color: $dark-grey;
+                @include h4();
             }
         }
 
