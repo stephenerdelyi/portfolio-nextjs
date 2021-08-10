@@ -33,13 +33,14 @@ export default function PortfolioSPA(props) {
 }
 
 //get site data from admin endpoint
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     var connection = await fetch(getEndpoint() + '/homepage')
     var response = await connection.json()
 
     return {
         props: {
-            site_data: response
+            site_data: response,
+            revalidate: 60*60 //revalidate every hour
         }
     }
 }
