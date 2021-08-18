@@ -70,21 +70,18 @@ export default class ContactForm extends React.Component {
 
                 this.setState({
                     form_successfully_sent: true,
-                    form_unsuccessfully_sent: false,
                     sending: false
                 });
             } else {
                 this.setState({
                     form_successfully_sent: false,
-                    form_unsuccessfully_sent: true,
                     sending: false
                 });
             }
 
             setTimeout(() => {
                 this.setState({
-                    form_successfully_sent: null,
-                    form_unsuccessfully_sent: null
+                    form_successfully_sent: null
                 });
             }, 5000);
         });
@@ -99,20 +96,18 @@ export default class ContactForm extends React.Component {
             var button_text = 'Send Message';
         }
 
-        if(this.state.form_successfully_sent || this.state.form_unsuccessfully_sent) {
-            if(this.state.form_successfully_sent) {
+        var form_message_classes = [];
+
+        if(this.state.hasOwnProperty('form_successfully_sent')) {
+            if(this.state.form_successfully_sent == true) {
                 var form_message_classes = ['--active'];
                 var message_title = this.fields.successful_title;
                 var message_text = this.fields.successful_text;
-            }
-
-            if(this.state.form_unsuccessfully_sent) {
+            } else if(this.state.form_successfully_sent == false) {
                 var form_message_classes = ['--active'];
                 var message_title = this.fields.unsuccessful_title;
                 var message_text = this.fields.unsuccessful_text;
             }
-        } else {
-            var form_message_classes = [];
         }
 
         return <>
