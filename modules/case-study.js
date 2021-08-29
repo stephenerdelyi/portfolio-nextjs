@@ -56,15 +56,26 @@ export default class CaseStudy extends React.Component {
                         <>
                             <img onClick={() => { this.close(); }} className={styles['case-study__close-btn']} src="/images/portfolio/close.png"/>
                             <div className={styles['case-study__modal-container__left']}>
-                                <p className={styles['case-study__categories']}>Applications  <span className={styles['case-study__category-separator']}>•</span> School</p>
+                                <p className={styles['case-study__categories']}>{this.case_study.type} <span className={styles['case-study__category-separator']}>•</span> {this.case_study.category}</p>
                                 <p className={styles['case-study__title']}>{this.case_study.title}</p>
-                                <ul className={styles['case-study__skills']}>
-                                    <li className={styles['case-study__skill']}>Software Development</li>
-                                    <li className={styles['case-study__skill']}>Ionic Framework</li>
-                                    <li className={styles['case-study__skill']}>Angular</li>
-                                </ul>
-                                <p className={styles['case-study__status']}>Status: No longer maintained<br/>Last Developed: May, 2019</p>
-                                <p className={styles['case-study__description']}>PackLife is a web application that any UNR guest can use to learn more about The University of Nevada, Reno and its services. PackLife provides users with event, transportation, dining, and amenities options available at the university in a fun and easy to use application.</p>
+                                { this.case_study.tags &&
+                                    <ul className={styles['case-study__skills']}>
+                                        { this.case_study.tags.map((tag, key) => {
+                                            return (
+                                                <li key={key} className={styles['case-study__skill']}>{tag}</li>
+                                            )
+                                        }) }
+                                    </ul>
+                                }
+                                { this.case_study.links && this.case_study.links.map((link, key) => {
+                                    return (
+                                        <a key={key} href={link.url} className={styles['case-study__link']} target={link.target}>{link.title}</a>
+                                    )
+                                })}
+                                <p className={styles['case-study__status']}>Status: {this.case_study.status.label}<br/>Last Developed: {this.case_study.last_developed}</p>
+                                { this.case_study.description &&
+                                    <p className={styles['case-study__description']}>{this.case_study.description}</p>
+                                }
                             </div>
                             <div className={styles['case-study__modal-container__right']}>
                                 <div className={Classes([[styles, ['case-study__story-item', '--left']]])}>

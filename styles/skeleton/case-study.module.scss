@@ -115,7 +115,7 @@
     &__skills {
         list-style: none;
         padding: 0em;
-        margin: 0em 0em 8em;
+        margin: 0em 0em 5em;
 
         @media(max-width: 740px) {
             margin-bottom: 2em;
@@ -131,6 +131,18 @@
         font-weight: 400;
         display: inline-block;
         pointer-events: none;
+    }
+
+    &__link {
+        @include button();
+        @include button-primary();
+        display: block;
+        max-width: 10em;
+        margin: 0em auto 0.5em;
+
+        &:last-of-type {
+            margin-bottom: 2.5em;
+        }
     }
 
     &__status {
