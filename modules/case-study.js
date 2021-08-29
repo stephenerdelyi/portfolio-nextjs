@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from './loading.js'
 import Classes from '../functions/classes.js'
 import styles from '../styles/skeleton/case-study.module.scss'
 import fancy from '../styles/skeleton/fancy-images.module.scss'
@@ -50,7 +51,7 @@ export default class CaseStudy extends React.Component {
             <div className={Classes([[styles, ['case-study', 'case-study__animate-entry', ...main_class]]])}>
                 <div className={Classes([[styles, ['case-study__modal-container', 'case-study__modal-container__animate-entry', ...container_class]]])}>
                     { this.state.loading ? (
-                        <p>loading...</p>
+                        <Loading/>
                     ) : (
                         <>
                             <img onClick={() => { this.close(); }} className={styles['case-study__close-btn']} src="/images/portfolio/close.png"/>
