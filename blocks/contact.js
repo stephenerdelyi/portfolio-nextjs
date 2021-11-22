@@ -3,7 +3,7 @@ import ContactForm from '../modules/contact-form'
 import styles from '../styles/blocks/contact.module.scss'
 
 export default function Contact(props) {
-    var fields = props.data.fields
+    const fields = props.data.fields
 
     return <>
         <div className={styles['block-contact']}>

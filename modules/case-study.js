@@ -44,8 +44,8 @@ export default class CaseStudy extends React.Component {
 
     render() {
         //apply exit animation classes on state change
-        var main_class = (this.state.open == true ? [] : ['case-study__animate-exit']);
-        var container_class = (this.state.open == true ? [] : ['case-study__modal-container__animate-exit']);
+        let main_class = (this.state.open == true ? [] : ['case-study__animate-exit']);
+        let container_class = (this.state.open == true ? [] : ['case-study__modal-container__animate-exit']);
 
         return <>
             <div className={Classes([[styles, ['case-study', 'case-study__animate-entry', ...main_class]]])}>

@@ -33,7 +33,7 @@ export default class Portfolio extends React.Component {
         });
 
         //don't allow scrolling behind the modal when open + don't jump scroll position when opening
-        var savedScrollY = window.scrollY;
+        let savedScrollY = window.scrollY;
         document.body.style.position = 'fixed';
         document.body.style.top = `-${savedScrollY}px`;
     }
@@ -44,7 +44,7 @@ export default class Portfolio extends React.Component {
         });
 
         //remove styles to disallow scrolling behind the modal when open + don't jump scroll position when closing
-        var savedScrollY = document.body.style.top;
+        let savedScrollY = document.body.style.top;
         document.body.style.position = '';
         document.body.style.top = '';
         window.scrollTo(0, parseInt(savedScrollY || '0') * -1);

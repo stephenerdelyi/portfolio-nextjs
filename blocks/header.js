@@ -2,7 +2,7 @@ import smoothScroll from '../functions/smooth-scroll'
 import styles from '../styles/blocks/header.module.scss'
 
 export default function Header(props) {
-    var fields = props.data.fields
+    const fields = props.data.fields
 
     return <>
         <div className={styles['block-header']}>

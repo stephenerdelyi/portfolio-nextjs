@@ -1,5 +1,5 @@
 export default function Classes(items) {
-    var classText = '';
+    let classText = '';
 
     items.forEach((item) => {
         if(typeof item[0] === 'object' && item[0] !== null) {

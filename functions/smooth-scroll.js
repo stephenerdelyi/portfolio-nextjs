@@ -6,8 +6,8 @@ export default function smoothScroll(e) {
     //support loser browsers which still don't have smooth scrolling. ahem - safari
     smoothscroll.polyfill();
 
-    var href = e.target.getAttribute('href');
-    var link = document.querySelector(href).offsetTop;
+    const href = e.target.getAttribute('href');
+    const link = document.querySelector(href).offsetTop;
 
     if(href && link) {
         scroll({

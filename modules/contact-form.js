@@ -47,7 +47,7 @@ export default class ContactForm extends React.Component {
             sending: true
         });
 
-        var form_data = {
+        let form_data = {
             name: this.formName.current.formItem.current.value,
             email: this.formEmail.current.formItem.current.value,
             message: this.formMessage.current.formItem.current.value
@@ -88,25 +88,27 @@ export default class ContactForm extends React.Component {
     }
 
     render() {
+        let form_classes = [];
+        let button_text = 'Send Message';
+
         if(this.state.sending) {
-            var form_classes = ['--disabled'];
-            var button_text = 'Sending...';
-        } else {
-            var form_classes = [];
-            var button_text = 'Send Message';
+            form_classes = ['--disabled'];
+            button_text = 'Sending...';
         }
 
-        var form_message_classes = [];
+        let form_message_classes = [];
+        let message_title = '';
+        let message_text = '';
 
         if(this.state.hasOwnProperty('form_successfully_sent')) {
             if(this.state.form_successfully_sent == true) {
-                var form_message_classes = ['--active'];
-                var message_title = this.fields.successful_title;
-                var message_text = this.fields.successful_text;
+                form_message_classes = ['--active'];
+                message_title = this.fields.successful_title;
+                message_text = this.fields.successful_text;
             } else if(this.state.form_successfully_sent == false) {
-                var form_message_classes = ['--active'];
-                var message_title = this.fields.unsuccessful_title;
-                var message_text = this.fields.unsuccessful_text;
+                form_message_classes = ['--active'];
+                message_title = this.fields.unsuccessful_title;
+                message_text = this.fields.unsuccessful_text;
             }
         }
 

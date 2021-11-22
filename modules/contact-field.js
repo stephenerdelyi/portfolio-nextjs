@@ -28,9 +28,9 @@ export default class ContactForm extends React.Component {
     }
 
     validate() {
-        var field = this.formItem.current;
-        var field_type = field.getAttribute('field-type');
-        var is_valid = false;
+        const field = this.formItem.current;
+        const field_type = field.getAttribute('field-type');
+        let is_valid = false;
 
         if(field_type == 'name') {
             if(field.value.length >= 2) {
@@ -47,15 +47,15 @@ export default class ContactForm extends React.Component {
         }
 
         this.setState({ is_valid_field: is_valid });
-        
+
         //report error status to parent
         this.props.errorHandler(this.props.fieldType, is_valid);
     }
 
     render() {
-        var InputType = this.props.tag;
-        var field_classes = InputType == 'input' ? ['block-contact__form-input'] : ['block-contact__form-textarea'];
-        var error_classes = (this.state.is_valid_field || this.state.is_valid_field == 'empty' ? [] : ['--error']);
+        let InputType = this.props.tag;
+        let field_classes = InputType == 'input' ? ['block-contact__form-input'] : ['block-contact__form-textarea'];
+        let error_classes = (this.state.is_valid_field || this.state.is_valid_field == 'empty' ? [] : ['--error']);
 
         return <>
             <InputType ref={this.formItem} onBlur={(e) => { this.validate() }} className={Classes([[styles, [...field_classes, ...error_classes]]])} placeholder={this.props.placeholder} field-type={this.props.fieldType} type={this.props.type}></InputType>

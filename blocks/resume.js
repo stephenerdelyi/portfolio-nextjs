@@ -3,13 +3,13 @@ import FilterableContent from '../modules/filterable-content.js'
 import styles from '../styles/blocks/resume.module.scss'
 
 export default function Resume(props) {
-    var fields = props.data.fields
+    const fields = props.data.fields
 
-    var categories = {
+    const categories = {
         '': fields.types
     }
 
-    var default_category = fields.default_selection;
+    const default_category = fields.default_selection;
 
     return <>
         <div className={styles['block-resume']}>

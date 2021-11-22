@@ -14,10 +14,10 @@ export default function PortfolioSPA(props) {
         <Favicon/>
         <Skipnav/>
 
-        {props && props.site_data &&
+        {props.site_data &&
             <main>
                 {props.site_data.map((block_data, key) => {
-                    var Block = dynamic(() => import('../blocks/' + block_data.name));
+                    const Block = dynamic(() => import('../blocks/' + block_data.name));
 
                     return (
                         <Container key={key} id={block_data.name} classes={[block_data.settings.background_class]}>
@@ -34,8 +34,8 @@ export default function PortfolioSPA(props) {
 
 //get site data from admin endpoint
 export async function getStaticProps(context) {
-    var connection = await fetch(getEndpoint() + '/homepage')
-    var response = await connection.json()
+    const connection = await fetch(getEndpoint() + '/homepage')
+    const response = await connection.json()
 
     return {
         props: {

@@ -50,7 +50,7 @@ export default class FilterableContent extends React.Component {
                                 }
                                 <ul className={Classes([[styles, ['filterable-content__category-selector']]])}>
                                     {this.props.categories[label].map((category, key) => {
-                                        var active_class = (this.state.active_category == category.slug ? ['--active'] : []);
+                                        let active_class = (this.state.active_category == category.slug ? ['--active'] : []);
                                         return (
                                             <li key={key} className={Classes([[styles, ['filterable-content__category', ...active_class]]])} onClick={(e) => { this.filter(e) }} data-filter={category.slug}>{category.name}</li>
                                         )

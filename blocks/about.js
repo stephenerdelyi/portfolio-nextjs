@@ -1,7 +1,7 @@
 import styles from '../styles/blocks/about.module.scss'
 
 export default function About(props) {
-    var fields = props.data.fields
+    const fields = props.data.fields
 
     return <>
         <div className={styles['block-about']}>
