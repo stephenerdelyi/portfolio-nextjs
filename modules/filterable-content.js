@@ -11,30 +11,10 @@ export default class FilterableContent extends React.Component {
         }
     }
 
-    componentDidMount() {
-        //initialize isotope
-        this.isotope = new Isotope(document.querySelector('.js-' + this.props.name + '-grid'), {
-            itemSelector: '.js-' + this.props.name + '-grid-item',
-            filter: '.' + this.state.active_category
-        });
-
-        //annoying but this fixes the isotope layout bug seen on render
-        setTimeout(() => {
-            this.isotope.arrange({
-                filter: '.' + this.state.active_category
-            });
-        }, 500);
-    }
-
     filter(event) {
         //set the state, then update the filter value based on the state
         this.setState({
             active_category: event.target.dataset.filter
-        }, () => {
-            //tell isotope to filter to the newly selected item
-            this.isotope.arrange({
-                filter: '.' + this.state.active_category
-            });
         });
     }
 
@@ -60,8 +40,17 @@ export default class FilterableContent extends React.Component {
                         )
                     })}
                 </div>
-                <div className={Classes([[styles, ['filterable-content__right']], ['js-' + this.props.name + '-grid']])}>
-                    {this.props.children}
+                <div className={Classes([[styles, ['filterable-content__right', '--' + this.props.columns]]])}>
+                    {React.Children.map(this.props.children, (child) => {
+                        const categories = child.props.categories ?? [];
+                        const hidden_class = (!categories.includes(this.state.active_category) ? ['--hidden'] : []);
+
+                        return (
+                            <div className={Classes([[styles, ['filterable-content__item', ...hidden_class]]])}>
+                                {child}
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </>

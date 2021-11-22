@@ -4,7 +4,6 @@ import Meta from '../modules/meta'
 import Favicon from '../modules/favicon'
 import Skipnav from '../modules/skipnav'
 import Container from '../modules/container'
-import Scripts from '../modules/scripts'
 
 import getEndpoint from '../functions/get-endpoint'
 
@@ -27,8 +26,6 @@ export default function PortfolioSPA(props) {
                 })}
             </main>
         }
-
-        <Scripts/>
     </>
 }
 

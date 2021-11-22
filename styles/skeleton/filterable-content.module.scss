@@ -23,6 +23,24 @@
         }
     }
 
+    &__item {
+        .--one-column & {
+            width: 100%;
+        }
+
+        .--two-columns & {
+            width: 50%;
+
+            @media(max-width: 415px) {
+                width: 100%;
+            }
+        }
+
+        &.--hidden {
+            display: none;
+        }
+    }
+
     &__right {
         flex-basis: 75%;
         display: flex;

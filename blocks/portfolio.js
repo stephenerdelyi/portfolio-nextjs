@@ -55,10 +55,10 @@ export default class Portfolio extends React.Component {
             <div className={styles['block-portfolio']}>
                 <h2 className={styles['block-portfolio__title']}>{this.fields.title}</h2>
 
-                <FilterableContent categories={this.categories} default_category={this.default_category} name="portfolio">
+                <FilterableContent categories={this.categories} default_category={this.default_category} columns="two-columns" name="portfolio">
                     {this.fields.items.map((item, key) => {
                         return (
-                            <div key={key} onClick={() => {this.open(item.id)}} className={Classes([[styles, ['block-portfolio__category-item']], [fancy, ['round-container']], ['js-portfolio-grid-item', ...item.types, ...item.categories]])}>
+                            <div key={key} onClick={() => {this.open(item.id)}} className={Classes([[styles, ['block-portfolio__category-item']], [fancy, ['round-container']]])} categories={item.types.concat(item.categories)}>
                                 <div className={Classes([[fancy, ['img-wrapper', item.image_type, item.image_position]]])}>
                                     <img className={fancy['img-src']} src={item.image} alt={item.title}/>
                                     {item.image_type != 'pdf' &&

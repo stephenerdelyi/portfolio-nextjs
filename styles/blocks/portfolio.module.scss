@@ -16,16 +16,12 @@
         display: flex;
         align-items: flex-start;
         box-shadow: $standard-box-shadow;
-        width: calc(50% - 3em);
         margin: 1.5em;
         overflow: hidden;
         height: 35em;
         cursor: pointer;
         z-index: 0;
-
-        @media(max-width: 415px) {
-            width: calc(100% - 3em);
-        }
+        position: relative;
 
         &__image {
             width: 8.4em;
