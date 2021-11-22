@@ -13,6 +13,11 @@ html {
     background: transparent !important;  /* optional: just make scrollbar invisible */
 }
 
+:root {
+	--h2-font-size: 5em;
+	--h2-font-weight: 700;
+}
+
 body {
 	margin: 0;
 	padding: 0;

@@ -2,13 +2,21 @@
 @import '../skeleton/fonts';
 @import '../skeleton/buttons';
 
+.block-contact__title {
+    font-size: var(--h2-font-size);
+	font-weight: var(--h2-font-weight);
+    margin-bottom: 4vw;
+    color: $white;
+    text-align: center;
+}
+
 .block-contact {
-    &__title {
-        @include h2();
-        margin-bottom: 4vw;
-        color: $white;
-        text-align: center;
-    }
+    // &__title {
+    //     @include h2();
+    //     margin-bottom: 4vw;
+    //     color: $white;
+    //     text-align: center;
+    // }
 
     &__container {
         display: flex;
