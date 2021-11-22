@@ -10,12 +10,14 @@ export default class CaseStudy extends React.Component {
     constructor(props) {
         super(props);
 
-        this.getCaseStudy();
-
         this.state = {
             open: true,
             loading: true
         }
+    }
+
+    componentDidMount() {
+        this.getCaseStudy();
     }
 
     close() {
