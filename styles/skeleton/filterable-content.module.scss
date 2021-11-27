@@ -1,6 +1,7 @@
 @import './variables';
 @import './fonts';
 @import './buttons';
+@import './animations';
 
 .filterable-content {
     &__category-container {
@@ -24,6 +25,11 @@
     }
 
     &__item {
+        position: absolute;
+        pointer-events: none;
+        transition: all 0.75s ease;
+        opacity: 0;
+
         .--one-column & {
             width: 100%;
         }
@@ -36,8 +42,14 @@
             }
         }
 
-        &.--hidden {
-            display: none;
+        &.--shown {
+            pointer-events: all;
+
+            @for $i from 0 through 30 {
+                &.--delay-#{$i} {
+                    animation: fadeIn 0.25s #{0.15s * $i} forwards;
+                }
+            }
         }
     }
 
@@ -46,6 +58,9 @@
         display: flex;
         flex-wrap: wrap;
         margin: -1.5em;
+        overflow-y: hidden;
+        transition: all 0.5s ease;
+        position: relative;
 
         @media(max-width: 565px) {
             flex-basis: 100%;

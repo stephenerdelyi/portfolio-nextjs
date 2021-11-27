@@ -1,6 +1,7 @@
 @import './variables';
 @import './buttons';
 @import './fonts';
+@import './animations';
 
 .case-study {
     background-color: rgba(0, 0, 0, 0.8);
@@ -9,7 +10,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 999;
 
     &__animate-entry {
         animation-duration: 0.75s;
@@ -187,51 +188,5 @@
 
     &__text-content {
         @include text();
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
-@keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale3d(0.3, 0.3, 0.3);
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes zoomOut {
-    from {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-        transform: scale3d(0.3, 0.3, 0.3);
-    }
-
-    to {
-        opacity: 0;
     }
 }
