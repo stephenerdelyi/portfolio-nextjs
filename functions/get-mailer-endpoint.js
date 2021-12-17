@@ -1,4 +1,4 @@
-const use_local_endpoint = true;
+const use_local_endpoint = false;
 
 export default function getMailerEndpoint() {
     if(use_local_endpoint) {
