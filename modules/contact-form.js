@@ -3,7 +3,7 @@ import ContactField from './contact-field'
 import Classes from '../functions/classes'
 import styles from '../styles/blocks/contact.module.scss'
 
-import getEndpoint from '../functions/get-endpoint'
+import getMailerEndpoint from '../functions/get-mailer-endpoint'
 
 export default class ContactForm extends React.Component {
     constructor(props) {
@@ -53,14 +53,14 @@ export default class ContactForm extends React.Component {
             message: this.formMessage.current.formItem.current.value
         }
 
-        const response = await fetch(getEndpoint() + '/message', {
+        const response = await fetch(getMailerEndpoint() + '/send', {
             method: 'POST',
             body: JSON.stringify(form_data),
             headers: {
-                "Content-type": "application/json; charset=UTF-8"
+                "Content-type": "text/plain; charset=UTF-8"
             }
         }).then((res) => res.json()).then((response) => {
-            if(!response.error) {
+            if(!response.errors && response.sent == true) {
                 //reset after the message window has opened
                 setTimeout(() => {
                     this.formName.current.reset();
