@@ -4,8 +4,6 @@ import Classes from '../functions/classes.js'
 import styles from '../styles/skeleton/case-study.module.scss'
 import fancy from '../styles/skeleton/fancy-images.module.scss'
 
-import getEndpoint from '../functions/get-endpoint'
-
 export default class CaseStudy extends React.Component {
     constructor(props) {
         super(props);
@@ -31,7 +29,7 @@ export default class CaseStudy extends React.Component {
     }
 
     async getCaseStudy() {
-        const response = await fetch(getEndpoint() + '/case-study/' + this.props.id, {
+        const response = await fetch(process.env.ENDPOINT_ADMIN + '/case-study/' + this.props.id, {
             method: 'GET'
         }).then((res) => res.json()).then((response) => {
             if(!response.error) {

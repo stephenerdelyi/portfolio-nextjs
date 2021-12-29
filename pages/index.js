@@ -5,8 +5,6 @@ import Favicon from '../modules/favicon'
 import Skipnav from '../modules/skipnav'
 import Container from '../modules/container'
 
-import getEndpoint from '../functions/get-endpoint'
-
 export default function PortfolioSPA(props) {
     return <>
         <Meta/>
@@ -31,7 +29,7 @@ export default function PortfolioSPA(props) {
 
 //get site data from admin endpoint
 export async function getStaticProps(context) {
-    const connection = await fetch(getEndpoint() + '/homepage')
+    const connection = await fetch(process.env.ENDPOINT_ADMIN + '/homepage')
     const response = await connection.json()
 
     return {
