@@ -29,7 +29,7 @@ export default function PortfolioSPA(props) {
 
 //get site data from admin endpoint
 export async function getStaticProps(context) {
-    const connection = await fetch(process.env.ENDPOINT_ADMIN + '/homepage')
+    const connection = await fetch(process.env.NEXT_PUBLIC_ENDPOINT_ADMIN + '/homepage')
     const response = await connection.json()
 
     return {

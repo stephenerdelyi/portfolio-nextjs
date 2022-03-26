@@ -51,7 +51,7 @@ export default class ContactForm extends React.Component {
             message: this.formMessage.current.formItem.current.value
         }
 
-        const response = await fetch(process.env.ENDPOINT_MAILER + '/send', {
+        const response = await fetch(process.env.NEXT_PUBLIC_ENDPOINT_MAILER + '/send', {
             method: 'POST',
             body: JSON.stringify(form_data),
             headers: {

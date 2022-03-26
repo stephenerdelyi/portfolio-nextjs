@@ -29,7 +29,7 @@ export default class CaseStudy extends React.Component {
     }
 
     async getCaseStudy() {
-        const response = await fetch(process.env.ENDPOINT_ADMIN + '/case-study/' + this.props.id, {
+        const response = await fetch(process.env.NEXT_PUBLIC_ENDPOINT_ADMIN + '/case-study/' + this.props.id, {
             method: 'GET'
         }).then((res) => res.json()).then((response) => {
             if(!response.error) {
